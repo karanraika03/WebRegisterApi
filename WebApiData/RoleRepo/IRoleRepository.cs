@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WebApiDomain.Model;
 
-namespace WebApiData.RoleRepo
+namespace WebApiData.Repository
 {
-    public interface IRoleRepository
+    public interface IRoleRepository : IRepository<Role>
     {
-
     }
 }

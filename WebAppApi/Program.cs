@@ -5,12 +5,18 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApiApplication.EmployeeApplication;
 using WebApiData;
+using WebApiData.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+
 
 // DbContext
 builder.Services.AddDbContext<DataContext>(opts =>

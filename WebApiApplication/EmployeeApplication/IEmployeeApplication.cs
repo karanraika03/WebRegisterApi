@@ -1,11 +1,13 @@
-﻿using WebApiApplication.DTO;
+﻿using WebApiDomain.Model;
 
-namespace WebApiApplication.EmployeeApplication
+namespace WebApiApplication.Interfaces
 {
     public interface IEmployeeApplication
     {
-        Task RegisterAsync(RegisterDto dto);
-        Task<string> LoginAsync(LoginDto dto);
-        Task ChangePasswordAsync(int userId, ChangePasswordDto dto);
+        Task<Employee?> GetEmployeeByEmail(string email);
+        Task<IEnumerable<Employee>> GetAllEmployees();
+        Task RegisterAsync(Employee employee);
+        Task UpdateAsync(Employee employee);
+        Task DeleteAsync(int id);
     }
 }
