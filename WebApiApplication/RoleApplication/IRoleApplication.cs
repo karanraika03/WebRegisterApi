@@ -1,8 +1,13 @@
-﻿using WebApiApplication.DTO;
+﻿using WebApiDomain.Model;
 
-namespace WebApiApplication.RoleApplication;
-
-interface IRoleApplication
+namespace WebApiApplication.Interfaces
 {
-    
+    public interface IRoleApplication
+    {
+        Task<IEnumerable<Role>> GetAllRoles();
+        Task<Role?> GetByIdAsync(int id);
+        Task AddAsync(Role role);
+        Task UpdateAsync(Role role);
+        Task DeleteAsync(int id);
+    }
 }
