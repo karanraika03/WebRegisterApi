@@ -1,19 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace WebApiDomain.Model;
-
-public class Blog
+﻿namespace WebApiDomain.Model
 {
-    [Key]
-    public int Id { get; set; }
-    public string? Title { get; set; }
-    public string? Description { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
-    public DateTime IsPublished { get; set; }
-    public int EmployeeId { get; set; }
+    public class Blog
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = default!;
+        public string Content { get; set; } = default!;
+        public int CreatedById { get; set; }
+        public Employee CreatedBy { get; set; } = default!;
 
-    [ForeignKey("EmployeeId")]
-    public Employee Employee { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    }
 }

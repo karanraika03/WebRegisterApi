@@ -9,7 +9,7 @@ public class DataContext : DbContext
     {
 
     }
-    public DbSet<Blog> Blog { get; set; }
+    public DbSet<Blog> Blogs { get; set; }
     public DbSet<Employee> Employee { get; set; }
     public DbSet<Role> Role { get; set; }
 }
