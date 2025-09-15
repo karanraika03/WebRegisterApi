@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApiApplication.DTO;
-using WebApiApplication.EmployeeApplication;
-
+using WebApiApplication.Interfaces;
+using WebApiApplication.Services;
 namespace WebAppApi.Controllers
 {
     [ApiController]
@@ -32,11 +32,14 @@ namespace WebAppApi.Controllers
 
         [Authorize]
         [HttpPost("change-password")]
-        public async Task<IActionResult> ChangePassword(ChangePasswordDto dto)
+        public async Task<IActionResult> ChangePassword(int userId, string oldPassword, string newPassword)
         {
-            var userId = int.Parse(User.FindFirst("UserId")!.Value);
-            await _employeeApp.ChangePasswordAsync(userId, dto);
-            return Ok(new { message = "Password updated" });
+            var result = await _employeeApp.ChangePasswordAsync(userId, oldPassword, newPassword);
+            if (!result)
+                return BadRequest("Password change failed");
+            return Ok("Password changed successfully");
         }
+
+
     }
 }

@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using WebApiApplication.EmployeeApplication;
+using WebApiApplication.Interfaces;
+using WebApiApplication.Services;
 using WebApiData;
 using WebApiData.Repository;
 
@@ -16,6 +17,10 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+
+builder.Services.AddScoped<IEmployeeApplication, EmployeeApplication>();
+builder.Services.AddScoped<IRoleApplication, RoleApplication>();
+builder.Services.AddScoped<IBlogApplication, BlogApplication>();
 
 
 // DbContext
