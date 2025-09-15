@@ -3,7 +3,7 @@ using WebApiDomain.Model;
 
 namespace WebAppApi.Controllers
 {
-    [Route("api/[controller]")]
+    /*[Route("api/[controller]")]
     [ApiController]
     public class RoleController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebAppApi.Controllers
             _roles.Add(role);
             return Ok("User registered successfully");
         }
-    }
+    }*/
 }
 
 
