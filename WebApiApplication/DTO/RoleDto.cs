@@ -1,6 +1,7 @@
-﻿namespace WebApiApplication.DTO;
-
-class RoleDto
+﻿namespace WebApiApplication.DTO
 {
-    public string? Name { get; set; }
+    public class RoleDto
+    {
+        public string Name { get; set; } = string.Empty;
+    }
 }

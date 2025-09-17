@@ -23,14 +23,11 @@ builder.Services.AddScoped<IRoleApplication, RoleApplication>();
 builder.Services.AddScoped<IBlogApplication, BlogApplication>();
 
 
-// DbContext
 builder.Services.AddDbContext<DataContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// DI
 builder.Services.AddScoped<IEmployeeApplication, EmployeeApplication>();
 
-// JWT
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
